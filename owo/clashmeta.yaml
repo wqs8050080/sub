@@ -1,0 +1,172 @@
+#====clash-meta精简模版=====
+#====参考自clash-meta官方文档：wiki.metacubex.one=====
+
+#clash配置
+#dns可自行修改
+port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+dns:
+  enable: true
+  listen: :53
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver: 
+    - 223.5.5.5
+    - 8.8.8.8
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://1.0.0.1/dns-query
+    - tls://dns.google
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+
+  - {"name":"纽约","type":"vless","server":"107.172.157.22","port":8723,"udp":true,"uuid":"9d8112c0-44f2-4e7a-8ebc-1d171cbd38f6",
+   "tls":true,"servername":"apple.com","flow":"xtls-rprx-vision","network":"tcp","reality-opts":{"public-key":"jkJ8YBpV4qq9my08DjD9Gt34IEO_95Qqho8INOlAXwQ"},"client-fingerprint":"ios"}
+#代理协议
+proxies:
+#==============================（vless-reality-vision节点）
+- name: Xray韩国                               #可自定义名称
+  type: vless
+  server: 20.196.229.147                       #解析的域名或IP
+  port: 6832                                   #自定义的端口
+  uuid: bf88f049-db49-4877-9185-1333b4bd424f   #自定义的uuid
+  network: tcp
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.samsung.com                  #自定义的第三方域名
+  reality-opts: 
+    public-key: 4IUDiDOYkDmag4DoGE6pZVucI9V3_LHJIiy7W9B8Vkg    #自定义的public-key
+    short-id: a8c031ce                        #自定义的short-id
+  client-fingerprint: ios                     #自定义的浏览器指纹
+
+- name: Xray纽约                               #可自定义名称
+  type: vless
+  server: 107.172.157.22                       #解析的域名或IP
+  port: 8723                                   #自定义的端口
+  uuid: 9d8112c0-44f2-4e7a-8ebc-1d171cbd38f6   #自定义的uuid
+  network: tcp
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: apple.com                       #自定义的第三方域名
+  reality-opts: 
+    public-key: jkJ8YBpV4qq9my08DjD9Gt34IEO_95Qqho8INOlAXwQ    #自定义的public-key
+    short-id:                                 #自定义的short-id
+  client-fingerprint: ios                     #自定义的浏览器指纹
+
+
+
+#==============================（vless-ws-tls节点）
+- name: vless-ws-tls节点                           #可自定义名称
+  type: vless
+  server: bvipc.com                          #解析的域名或者优选域名IP
+  port: 12345                                      #自定义的端口
+  uuid: 3cc9a51c-db76-4ad2-a76b-8cb993bddb73       #自定义的uuid
+  udp: true
+  tls: true
+  network: ws
+  servername: bvipc.com                     #sni域名，与下面的host一致
+  ws-opts:
+    path: "/?ed=2048"                              #" "内自定义的path路径
+    headers:
+      Host: bvipc.com                       #host域名，与上面的servername一致
+
+
+#==============================（hysteria证书节点）
+- name: hysteria证书节点                            #可自定义名称
+  type: hysteria
+  server: yg.ygkkk.eu.org                          #解析的域名
+  port: 12345                                      #自定义的端口，多端口改为 ports:空格1000,2000-3000
+  auth-str: 123456                                 #自定义的密码
+  alpn:
+    - h3
+  protocol: udp                                    #自定义协议：udp/wechat-video/faketcp
+  up: 20                                           #自定义的上传限制
+  down: 100                                        #自定义的下载限制
+  sni: yg.ygkkk.eu.org                             #sni域名，与上面server地址一致  
+  skip-cert-verify: false
+  fast-open: true
+    
+#==============================（hysteria自签节点）
+- name: hysteria自签节点                           #可自定义名称
+  type: hysteria
+  server: 1.2.3.4                                  #服务器本地IP
+  port: 12345                                      #自定义的端口，多端口改为 ports:空格1000,2000-3000
+  auth-str: 123456                                 #自定义的密码
+  alpn:
+    - h3
+  protocol: udp                                    #自定义协议：udp/wechat-video/faketcp
+  up: 20                                           #自定义的上传限制
+  down: 100                                        #自定义的下载限制
+  sni: www.bing.com                                
+  skip-cert-verify: true
+  fast-open: true
+    
+
+#==============================（warp-wireguard节点）  
+- name: warp-team                                  #可自定义名称
+  type: wireguard         
+  server: 162.159.193.10                                     #可自定义优选对端IP，与下面port的端口相对应
+  port: 2408                                                 #可自定义优选对端IP，与上面server的IP相对应
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:81f8:4ba1:fdd8:4a8c:ae77               #与private-key相对应，如删除本行，表示仅IPV4
+  public-key: iF29Ic/ZeH1a+wuWi4J9SllKfzJSf8X3B9d2Pos6w0Q=
+  private-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=  #获取private-key，私key
+  udp: true
+  dns: ["1.1.1.1"]
+  mtu: 1280
+  remote-dns-resolve: true
+
+
+
+#代理分流
+#分流组可自行创建添加，proxies参数下的name节点名称，按需求自行增减，确保出现的name节点名称在二区代理协议中可查找
+proxy-groups:
+- name: 负载均衡
+  type: load-balance
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+    - Xray韩国                                  #自定义添加协议的name字段
+    - Xray韩国
+    - warp-team
+
+- name: 自动选择
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  proxies:
+    - Xray韩国                                  #自定义添加协议的name字段
+    - Xray韩国
+    - warp-team
+    
+- name: 🌍选择代理节点
+  type: select
+  proxies:
+    - 负载均衡                                            #自定义添加协议的name字段
+    - 自动选择
+    - DIRECT
+    - Xray韩国                                  #自定义添加协议的name字段
+    - Xray韩国
+    - warp-team
+
+
+
+#代理规则
+#代理规则可自行添加 
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,🌍选择代理节点
