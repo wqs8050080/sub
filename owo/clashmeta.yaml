@@ -45,7 +45,7 @@ proxies:
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.sony.jp                      #自定义的第三方域名
+  servername: www.bandai.com                      #自定义的第三方域名
   reality-opts: 
     public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
     short-id:                                  #自定义的short-id
@@ -60,7 +60,7 @@ proxies:
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.sony.jp                     #自定义的第三方域名
+  servername: www.bandai.com                     #自定义的第三方域名
   reality-opts: 
     public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
     short-id:                                 #自定义的short-id
