@@ -36,33 +36,48 @@ dns:
 #代理协议
 proxies:
 #==============================（vless-reality-vision节点）
-- name: Xray韩国                               #可自定义名称
+- name: Xray日本                               #可自定义名称
   type: vless
-  server: 20.196.229.147                       #解析的域名或IP
-  port: 6832                                   #自定义的端口
-  uuid: bf88f049-db49-4877-9185-1333b4bd424f   #自定义的uuid
+  server: 20.89.94.99                          #解析的域名或IP
+  port: 5684                                   #自定义的端口
+  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   #自定义的uuid
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.samsung.com                  #自定义的第三方域名
+  servername: www.sony.jp                      #自定义的第三方域名
   reality-opts: 
-    public-key: 4IUDiDOYkDmag4DoGE6pZVucI9V3_LHJIiy7W9B8Vkg    #自定义的public-key
-    short-id: a8c031ce                        #自定义的short-id
+    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
+    short-id:                                  #自定义的short-id
+  client-fingerprint: ios                      #自定义的浏览器指纹
+
+- name: Xray日本IPV6                           #可自定义名称
+  type: vless
+  server: 2603:1040:404:3::21f                 #解析的域名或IP
+  port: 5684                                   #自定义的端口
+  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   #自定义的uuid
+  network: tcp
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.sony.jp                     #自定义的第三方域名
+  reality-opts: 
+    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
+    short-id:                                 #自定义的short-id
   client-fingerprint: ios                     #自定义的浏览器指纹
 
 - name: Xray纽约                               #可自定义名称
   type: vless
   server: 107.172.157.22                       #解析的域名或IP
-  port: 8723                                   #自定义的端口
-  uuid: 9d8112c0-44f2-4e7a-8ebc-1d171cbd38f6   #自定义的uuid
+  port: 5492                                   #自定义的端口
+  uuid: f9915bc7-70d4-4c3a-b6d4-4c420b33f234   #自定义的uuid
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
   servername: apple.com                       #自定义的第三方域名
   reality-opts: 
-    public-key: jkJ8YBpV4qq9my08DjD9Gt34IEO_95Qqho8INOlAXwQ    #自定义的public-key
+    public-key: 28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg    #自定义的public-key
     short-id:                                 #自定义的short-id
   client-fingerprint: ios                     #自定义的浏览器指纹
 
@@ -139,8 +154,9 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-    - Xray韩国                                  #自定义添加协议的name字段
-    - Xray韩国
+    - Xray日本                                  #自定义添加协议的name字段
+    - Xray日本IPV6
+    - Xray纽约
     - warp-team
 
 - name: 自动选择
@@ -149,8 +165,9 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-    - Xray韩国                                  #自定义添加协议的name字段
-    - Xray韩国
+    - Xray日本                                  #自定义添加协议的name字段
+    - Xray日本IPV6
+    - Xray纽约
     - warp-team
     
 - name: 🌍选择代理节点
@@ -159,8 +176,9 @@ proxy-groups:
     - 负载均衡                                            #自定义添加协议的name字段
     - 自动选择
     - DIRECT
-    - Xray韩国                                  #自定义添加协议的name字段
-    - Xray韩国
+    - Xray日本                                  #自定义添加协议的name字段
+    - Xray日本IPV6
+    - Xray纽约
     - warp-team
 
 
