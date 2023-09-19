@@ -126,7 +126,7 @@ proxies:
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: apple.com                       #自定义的第三方域名
+  servername: www.apple.com                       #自定义的第三方域名
   reality-opts: 
     public-key: 28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg    #自定义的public-key
     short-id:                                 #自定义的short-id
@@ -180,7 +180,6 @@ proxies:
   skip-cert-verify: true
   fast-open: true
     
-
 #==============================（warp-wireguard节点）  
 - name: warp-team                                  #可自定义名称
   type: wireguard         
@@ -188,8 +187,8 @@ proxies:
   port: 2408                                                 #可自定义优选对端IP，与上面server的IP相对应
   ip: 172.16.0.2
   ipv6: 2606:4700:110:81f8:4ba1:fdd8:4a8c:ae77               #与private-key相对应，如删除本行，表示仅IPV4
-  public-key: iF29Ic/ZeH1a+wuWi4J9SllKfzJSf8X3B9d2Pos6w0Q=
-  private-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=  #获取private-key，私key
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: iF29Ic/ZeH1a+wuWi4J9SllKfzJSf8X3B9d2Pos6w0Q=  #获取private-key，私key
   udp: true
   dns: ["1.1.1.1"]
   mtu: 1280
