@@ -87,53 +87,53 @@ dns:
 
 
 
-#代理协议
+# 代理协议
 proxies:
-#==============================（vless-reality-vision节点）
-- name: Xray日本                               #可自定义名称
+# ==============================（vless-reality-vision节点）
+- name: Xray日本
   type: vless
-  server: 20.89.94.99                          #解析的域名或IP
-  port: 5684                                   #自定义的端口
-  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   #自定义的uuid
+  server: 20.89.94.99
+  port: 5684
+  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.bandai.com                      #自定义的第三方域名
-  reality-opts: 
-    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
-    short-id:                                  #自定义的short-id
-  client-fingerprint: ios                      #自定义的浏览器指纹
+  servername: www.bandai.com
+  reality-opts:
+    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY
+    short-id:
+  client-fingerprint: ios
 
-- name: Xray日本IPV6                           #可自定义名称
+- name: Xray日本IPV6
   type: vless
-  server: 2603:1040:404:3::21f                 #解析的域名或IP
-  port: 5684                                   #自定义的端口
-  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   #自定义的uuid
+  server: 2603:1040:404:3::21f
+  port: 5684
+  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.bandai.com                     #自定义的第三方域名
-  reality-opts: 
-    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    #自定义的public-key
-    short-id:                                 #自定义的short-id
-  client-fingerprint: ios                     #自定义的浏览器指纹
+  servername: www.bandai.com
+  reality-opts:
+    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY
+    short-id:
+  client-fingerprint: ios
 
-- name: Xray纽约                               #可自定义名称
+- name: Xray纽约
   type: vless
-  server: 107.172.157.22                       #解析的域名或IP
-  port: 5492                                   #自定义的端口
-  uuid: f9915bc7-70d4-4c3a-b6d4-4c420b33f234   #自定义的uuid
+  server: 107.172.157.22
+  port: 5492
+  uuid: f9915bc7-70d4-4c3a-b6d4-4c420b33f234
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.apple.com                       #自定义的第三方域名
-  reality-opts: 
-    public-key: 28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg    #自定义的public-key
-    short-id:                                 #自定义的short-id
-  client-fingerprint: ios                     #自定义的浏览器指纹
+  servername: www.apple.com
+  reality-opts:
+    public-key: 28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg
+    short-id:
+  client-fingerprint: ios
 
 
 proxy-groups:
