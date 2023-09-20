@@ -1,4 +1,11 @@
-# clash Meta
+####################################
+# 创建者：v2rayse.com
+# 客户端：Clash.Meta
+# 创建时间：2023-09-20 12:40:40
+# 使用模版：V2RaySE 默认模版
+# 节点数量：3
+####################################
+# !!当前配置文件请使用基于 Clash.Meta 内核程序
 mixed-port: 7890
 allow-lan: true
 log-level: info
@@ -78,143 +85,68 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
 
-# 代理协议
 proxies:
-# ==============================（vless-reality-vision节点）
-- name: Xray日本                               # 可自定义名称
-  type: vless
-  server: 20.89.94.99                          # 解析的域名或IP
-  port: 5684                                   # 自定义的端口
-  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   # 自定义的uuid
-  network: tcp
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.bandai.com                      # 自定义的第三方域名
-  reality-opts: 
-    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    # 自定义的public-key
-    short-id:                                  # 自定义的short-id
-  client-fingerprint: ios                      # 自定义的浏览器指纹
-
-- name: Xray日本IPV6                           # 可自定义名称
-  type: vless
-  server: [2603:1040:404:3::21f]                 # 解析的域名或IP
-  port: 5684                                   # 自定义的端口
-  uuid: f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4   # 自定义的uuid
-  network: tcp
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.bandai.com                     # 自定义的第三方域名
-  reality-opts: 
-    public-key: 3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY    # 自定义的public-key
-    short-id:                                 # 自定义的short-id
-  client-fingerprint: ios                     # 自定义的浏览器指纹
-
-- name: Xray纽约                               # 可自定义名称
-  type: vless
-  server: 107.172.157.22                       # 解析的域名或IP
-  port: 5492                                   # 自定义的端口
-  uuid: f9915bc7-70d4-4c3a-b6d4-4c420b33f234   # 自定义的uuid
-  network: tcp
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.apple.com                       # 自定义的第三方域名
-  reality-opts: 
-    public-key: 28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg    # 自定义的public-key
-    short-id:                                 # 自定义的short-id
-  client-fingerprint: ios                     # 自定义的浏览器指纹
-
-# ==============================（vless-ws-tls节点）
-- name: vless-ws-tls节点                           # 可自定义名称
-  type: vless
-  server: bvipc.com                          # 解析的域名或者优选域名IP
-  port: 12345                                      # 自定义的端口
-  uuid: 3cc9a51c-db76-4ad2-a76b-8cb993bddb73       # 自定义的uuid
-  udp: true
-  tls: true
-  network: ws
-  servername: bvipc.com                     # sni域名，与下面的host一致
-  ws-opts:
-    path: "/?ed=2048"                              # " "内自定义的path路径
-    headers:
-      Host: bvipc.com                       # host域名，与上面的servername一致
-
-# ==============================（warp-wireguard节点）  
-- name: warp-team                                  # 可自定义名称
-  type: wireguard         
-  server: 162.159.193.10                                     # 可自定义优选对端IP，与下面port的端口相对应
-  port: 2408                                                 # 可自定义优选对端IP，与上面server的IP相对应
-  ip: 172.16.0.2
-  ipv6: 2606:4700:110:81f8:4ba1:fdd8:4a8c:ae77               # 与private-key相对应，如删除本行，表示仅IPV4
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  private-key: iF29Ic/ZeH1a+wuWi4J9SllKfzJSf8X3B9d2Pos6w0Q=  # 获取private-key，私key
-  udp: true
-  dns: ["1.1.1.1"]
-  mtu: 1280
-  remote-dns-resolve: true
-
-
-
-# 代理分流
+  - {"name":"Xray日本","type":"vless","server":"20.89.94.99","port":5684,"udp":true,"uuid":"f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4","tls":true,"servername":"www.bandai.com","flow":"xtls-rprx-vision","network":"tcp","reality-opts":{"public-key":"3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY"},"client-fingerprint":"ios"}
+  - {"name":"Xray纽约","type":"vless","server":"107.172.157.22","port":5492,"udp":true,"uuid":"f9915bc7-70d4-4c3a-b6d4-4c420b33f234","tls":true,"servername":"www.apple.com","flow":"xtls-rprx-vision","network":"tcp","reality-opts":{"public-key":"28LFC52uLAiGl6RYJ1qHXzdfMTCxyeXpFzo0b0QeFSg"},"client-fingerprint":"ios"}
+  - {"name":"Xray日本IPV6","type":"vless","server":"[2603:1040:404:3::21f]","port":5684,"udp":true,"uuid":"f64cb7ac-0206-48ee-a3b9-bd931d2fe0f4","tls":true,"servername":"www.bandai.com","flow":"xtls-rprx-vision","network":"tcp","reality-opts":{"public-key":"3HxMYL6pUi4i8CtLgS7apbo2V-COyFimf9lktCLPERY"},"client-fingerprint":"ios"}
+  - {"name":"Warp+","type":"wireguard","server":"162.159.193.10","port":2408,"udp":true,"ip":"172.16.0.2","ipv6":"2606:4700:110:81f8:4ba1:fdd8:4a8c:ae77","private-key":"iF29Ic/ZeH1a+wuWi4J9SllKfzJSf8X3B9d2Pos6w0Q=","public-key":"bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=","dns":["1.1.1.1"],"mtu":1280,"remote-dns-resolve":true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: 📲 电报信息
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -237,14 +169,11 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-    - Xray日本
-    - Xray日本IPV6
-    - Xray纽约
-    - warp-team
+      - Xray日本
+      - Xray纽约
+      - Xray日本IPV6
+      - Warp+
 
-
-
-# 代理规则
 rules:
 # 本地/局域网地址
 # 参考：https://en.wikipedia.org/wiki/Reserved_IP_addresses
